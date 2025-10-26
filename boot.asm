@@ -1,3 +1,6 @@
+;information about the BIOS interrupt used here: https://en.wikipedia.org/wiki/INT_10H
+;infromation about LOADSB: https://www.felixcloutier.com/x86/lods:lodsb:lodsw:lodsd:lodsq
+
 ORG 0x7c00
 BITS 16
 
@@ -20,7 +23,7 @@ print:
   ret
 
 print_char:
-  mov ah, 0eh ;0eh is rquired by int 10
+  mov ah, 0eh ;0eh tells the BIOS to print 
   int 0x10 ;video - teletype output
   ret
 
